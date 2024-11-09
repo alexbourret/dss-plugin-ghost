@@ -1,0 +1,86 @@
+{
+    "meta": {
+        "label": "New posts",
+        "description": "Publish your new posts to Ghost",
+        "icon": "fas fa-ghost"
+    },
+    "kind": "PYTHON",
+    "selectableFromDataset": "input_A_role",
+    "inputRoles": [
+        {
+            "name": "input_A_role",
+            "label": "input A displayed name",
+            "description": "what input A means",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsDataset": true
+        }
+    ],
+
+    "outputRoles": [
+        {
+            "name": "main_output",
+            "label": "main output displayed name",
+            "description": "what main output means",
+            "arity": "UNARY",
+            "required": false,
+            "acceptsDataset": true
+        }
+    ],
+    "params": [
+        {
+            "name": "preset_type",
+            "label": "Account type",
+            "type": "SELECT",
+            "selectChoices": [
+                {"value": "user_account", "label": "Personnal account"},
+                {"value": "service_account", "label": "Service account"}
+            ],
+            "defaultValue": "service_account",
+            "visibilityCondition": true
+        },
+        {
+            "name": "service_account",
+            "label": "Service account preset",
+            "type": "PRESET",
+            "parameterSetId": "service-accounts",
+            "visibilityCondition": "model.preset_type=='service_account'"
+        },
+        {
+            "name": "user_account",
+            "label": "Personnal account preset",
+            "type": "PRESET",
+            "parameterSetId": "personnal-accounts",
+            "visibilityCondition": "model.preset_type=='user_account'"
+        },
+        {
+            "name": "title_column",
+            "label": "Title column",
+            "type": "COLUMN",
+            "description": "",
+            "columnRole": "input_A_role"
+        },
+        {
+            "name": "excerpt_column",
+            "label": "Excerpt column",
+            "type": "COLUMN",
+            "description": "",
+            "columnRole": "input_A_role"
+        },
+        {
+            "name": "text_column",
+            "label": "Text column",
+            "type": "COLUMN",
+            "description": "",
+            "columnRole": "input_A_role"
+        },
+        {
+            "name": "image_url_column",
+            "label": "Image URL column",
+            "type": "COLUMN",
+            "description": "",
+            "columnRole": "input_A_role"
+        }
+    ],
+    "resourceKeys": []
+}

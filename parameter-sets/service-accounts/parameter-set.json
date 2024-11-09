@@ -1,0 +1,21 @@
+{
+    "meta" : {
+        "label": "Service account API keys",
+        "description": "",
+        "icon": "fas fa-ghost"
+    },
+    "defaultDefinableInline": true,
+    "defaultDefinableAtProjectLevel": true,
+    "params": [
+        {
+            "name": "ghost_instance_url",
+            "type": "STRING",
+            "label": "URL of the Ghost instance"
+        },
+        {
+            "name": "api_key",
+            "label": "API admin key",
+            "type": "PASSWORD"
+        }
+    ]
+}
